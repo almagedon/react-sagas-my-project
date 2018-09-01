@@ -1,2 +1,2 @@
-# smartfront
+# my project
 
