@@ -41,7 +41,7 @@ export default () => {
   const persistConfig = {
     key: 'root',
     storage: storage,
-    blacklist: [],
+    blacklist: ['app'],
   };
   const pReducer = persistReducer(persistConfig, rootReducer);
 

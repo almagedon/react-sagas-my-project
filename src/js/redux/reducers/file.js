@@ -1,54 +1,34 @@
-import { Map } from 'immutable';
-
 import {
   GET_FILE_START,
   GET_FILE_ERROR,
   GET_FILE_SUCCESS,
-  INCREMENT, 
+  INCREMENT,
   DECRESS,
 } from 'redux/actions/file';
 
-const initialState = Map({
+const initialState = {
   loading: false,
   error: null,
   file: null,
   counter: 0,
-});
+};
 
 const actionsMap = {
   [INCREMENT]: (state) => {
-    const counter = state.get('counter') + 1;
+    const counter = state.counter + 1;
 
-    return state.merge(Map({
-      counter,
-    }));
+    return {
+      ...state,
+      counter
+    }
   },
   [DECRESS]: (state) => {
-    const counter = state.get('counter') - 1;
+    const counter = counter - 1;
 
-    return state.merge(Map({
-      counter,
-    }));
-  },
-  // Async action
-  [GET_FILE_START]: (state) => {
-    return state.merge(Map({
-      loading: true,
-      error: null,
-      file: null,
-    }));
-  },
-  [GET_FILE_ERROR]: (state, action) => {
-    return state.merge(Map({
-      loading: false,
-      error: action.error.message,
-    }));
-  },
-  [GET_FILE_SUCCESS]: (state, action) => {
-    return state.merge(Map({
-      loading: false,
-      file: action.data,
-    }));
+    return {
+      ...state,
+      counter
+    };
   },
 };
 

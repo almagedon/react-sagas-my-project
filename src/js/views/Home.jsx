@@ -34,8 +34,8 @@ const styles = theme => ({
 });
 
 @connect(state => ({
-    counter: state.get('persist'),
-}))
+    counter: state.persist.counter
+}), {increment})
 
 
 class App extends Component {
@@ -49,7 +49,7 @@ class App extends Component {
     return (
       <div className="App">
         <br/>
-      <Button variant="outlined" color="secondary" className={classes.button}>
+      <Button variant="outlined" color="secondary" className={classes.button} onClick={this.props.increment} >
         Secondary
       </Button>
       <Dropzone />
